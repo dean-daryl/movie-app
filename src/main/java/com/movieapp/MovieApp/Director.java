@@ -19,15 +19,15 @@ public class Director {
     private UUID directorId;
     private String firstName;
     private String lastName;
-    private LocalDate date_of_birth;
+    private LocalDate dateOfBirth;
     private String address;
     private String nationality;
     private String email;
     private String gender;
     @ManyToOne
-    @JoinColumn(name = "studio_id")
+    @JoinColumn(name = "studioId")
     Studio studio;
     @ManyToOne
-    @JoinColumn(name = "movie_id")
+    @JoinColumn(name = "movieId")
     Movie movie;
 }

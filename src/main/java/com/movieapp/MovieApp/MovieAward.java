@@ -16,11 +16,11 @@ import java.util.UUID;
 public class MovieAward {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID award_id;
+    private UUID awardId;
     private String award_name;
     private String year;
     @ManyToOne
-    @JoinColumn(name="movie_id")
+    @JoinColumn(name="movieId")
     @JsonIgnore
     Movie movie;
 

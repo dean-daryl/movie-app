@@ -16,8 +16,8 @@ import java.util.UUID;
 public class Genres {
     @Id
     @GeneratedValue
-    private UUID genre_id;
-    private String genre_name;
+    private UUID genreId;
+    private String genreName;
     private String description;
 
 }

@@ -16,8 +16,8 @@ import java.util.UUID;
 public class Account {
     @Id
     @GeneratedValue
-    private UUID account_id;
-    private String account_name;
+    private UUID accountId;
+    private String accountName;
     private enum Category {
         Kids,
         Normal,

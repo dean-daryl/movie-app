@@ -18,7 +18,7 @@ import java.util.UUID;
 public class Role {
     @Id
     @GeneratedValue
-    private UUID roles;
+    private UUID roleId;
     private String roleName;
     private String description;
 }

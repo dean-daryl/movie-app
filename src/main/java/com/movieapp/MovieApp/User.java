@@ -17,16 +17,16 @@ import java.util.UUID;
 public class User {
     @Id
     @GeneratedValue
-    private UUID user_id;
+    private UUID userId;
     private String firstName;
     private String lastName;
-    private LocalDate date_of_birth;
+    private LocalDate dateOfBirth;
     private String address;
     private String nationality;
     private String email;
     private String gender;
-    private String country_code;
-    private String phone_number;
+    private String countryCode;
+    private String phoneNumber;
     private String password;
     @OneToMany
     private List<PaymentPlan> plans;

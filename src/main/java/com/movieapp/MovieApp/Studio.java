@@ -16,7 +16,7 @@ import java.util.UUID;
 public class Studio {
     @Id
     @GeneratedValue
-    private UUID studio_id;
+    private UUID studioId;
     private String studioName;
     private String address;
     private String country;

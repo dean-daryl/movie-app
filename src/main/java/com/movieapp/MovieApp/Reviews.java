@@ -15,11 +15,11 @@ import java.util.UUID;
 public class Reviews {
     @Id
     @GeneratedValue
-    private UUID review_id;
-    private String review_body;
+    private UUID reviewId;
+    private String reviewBody;
     private Integer rating;
     @ManyToOne
-    @JoinColumn(name = "movie_id")
+    @JoinColumn(name = "movieId")
     private Movie movie;
 
 }

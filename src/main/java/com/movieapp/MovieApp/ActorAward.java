@@ -15,11 +15,11 @@ import java.util.UUID;
 public class ActorAward {
     @Id
     @GeneratedValue
-    private UUID award_id;
-    private String award_name;
+    private UUID awardId;
+    private String awardName;
     private String year;
     @ManyToOne
-    @JoinColumn(name = "actor_id")
+    @JoinColumn(name = "actorId")
     Actor actor;
 
 }

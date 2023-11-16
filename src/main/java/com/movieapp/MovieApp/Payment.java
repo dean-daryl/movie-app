@@ -19,7 +19,7 @@ import java.util.UUID;
 public class Payment {
     @Id
     @GeneratedValue
-    private UUID payment_id;
+    private UUID paymentId;
     private String paymentMethod;
     private LocalDate paymentDate;
     private String amountPaid;

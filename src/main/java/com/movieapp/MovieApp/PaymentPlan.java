@@ -18,9 +18,9 @@ import java.util.UUID;
 public class PaymentPlan {
     @Id
     @GeneratedValue
-    private UUID payment_plan_id;
-    private String payment_plan_name;
-    private String payment_plan_price;
+    private UUID paymentPlanId;
+    private String paymentPlanName;
+    private String paymentPlanPrice;
     private String duration;
     private Boolean active;
 }

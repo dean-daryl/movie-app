@@ -18,7 +18,7 @@ import java.util.UUID;
 public class Notification {
     @Id
     @GeneratedValue
-    private UUID notification_id;
+    private UUID notificationId;
     private String title;
     private String message;
 
