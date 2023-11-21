@@ -23,6 +23,6 @@ public class Studio {
     @OneToMany(mappedBy = "studio",cascade = CascadeType.ALL)
     private List<Director> directors;
     @ManyToOne
-    @JoinColumn(name = "movie_id")
+    @JoinColumn(name = "movieId")
     Movie movie;
 }

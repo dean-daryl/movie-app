@@ -19,7 +19,7 @@ public class Reviews {
     private String reviewBody;
     private Integer rating;
     @ManyToOne
-    @JoinColumn(name = "movieId")
+    @JoinColumn(name = "movie_id")
     private Movie movie;
 
 }

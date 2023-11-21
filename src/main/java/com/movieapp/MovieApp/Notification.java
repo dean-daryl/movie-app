@@ -1,9 +1,6 @@
 package com.movieapp.MovieApp;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,5 +18,7 @@ public class Notification {
     private UUID notificationId;
     private String title;
     private String message;
-
+    @ManyToOne
+    @JoinColumn(name = "userId")
+    private User user;
 }

@@ -27,5 +27,6 @@ public class Actor {
     private String gender;
     @OneToMany(mappedBy ="actor", cascade = CascadeType.ALL)
     private List<ActorAward> actorAwards;
-
+    @ManyToMany(mappedBy = "movieActors")
+    private List<Movie> movies;
 }

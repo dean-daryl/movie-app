@@ -28,14 +28,14 @@ public class User {
     private String countryCode;
     private String phoneNumber;
     private String password;
-    @OneToMany
+    @OneToMany(mappedBy = "user")
     private List<PaymentPlan> plans;
-    @OneToMany
-    Collection<Role> roles;
-    @OneToMany
-    Collection<Payment> payments;
-    @OneToMany
-    Collection<Account> accounts;
-    @OneToMany
-    Collection<Notification> notifications;
+    @OneToMany(mappedBy = "user")
+    private List<Role> roles;
+    @OneToMany(mappedBy = "user")
+    private List<Payment> payments;
+    @OneToMany(mappedBy = "user")
+    private List<Account> accounts;
+    @OneToMany(mappedBy = "user")
+    private List<Notification> notifications;
 }

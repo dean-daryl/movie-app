@@ -26,16 +26,20 @@ public class Movie {
     @ManyToMany
     @JoinTable(name = "Movie Genres")
     List<Genres> genres;
-    @OneToMany(mappedBy = "movie")
+    @OneToMany(mappedBy="movie")
     List<MovieAward> movieAwards;
     @ManyToMany
-    @JoinTable(name = "movie actors")
-    List<Actor> movieActors;
+    @JoinTable(
+            name = "movie_actor",
+            joinColumns = @JoinColumn(name = "movie_id"),
+            inverseJoinColumns = @JoinColumn(name = "actor_id")
+    )
+    private  List<Actor> movieActors;
     @OneToMany(mappedBy="movie")
     List<Reviews> reviews;
-    @OneToMany(mappedBy = "movie")
+    @OneToMany(mappedBy="movie")
     List<Studio> studios;
-    @OneToMany(mappedBy = "movie")
+    @OneToMany(mappedBy="movie")
     List<Director> directors;
 
 

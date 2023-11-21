@@ -19,12 +19,13 @@ public class Account {
     private UUID accountId;
     private String accountName;
     private enum Category {
-        Kids,
-        Normal,
+        kids,
+        normal,
     };
     @Enumerated(EnumType.STRING)
     private Category category;
     private Boolean active;
-    @ManyToMany
-    Collection<Movie> favorites;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 }

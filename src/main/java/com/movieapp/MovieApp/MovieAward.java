@@ -12,7 +12,7 @@ import java.util.UUID;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="Movie Awards",schema = "public")
+@Table(name="Movie Awards")
 public class MovieAward {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
