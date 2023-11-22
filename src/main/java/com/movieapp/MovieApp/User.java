@@ -1,5 +1,6 @@
 package com.movieapp.MovieApp;
 
+import com.fasterxml.jackson.annotation.*;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -14,28 +15,34 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
+@JsonRootName(value = "user")
+@JsonIgnoreProperties({"password"})
 public class User {
     @Id
     @GeneratedValue
     private UUID userId;
+    @JsonProperty(value = "name", access = JsonProperty.Access.WRITE_ONLY)
     private String firstName;
     private String lastName;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
     private LocalDate dateOfBirth;
     private String address;
     private String nationality;
     private String email;
     private String gender;
     private String countryCode;
+    @JsonIgnore
     private String phoneNumber;
+    @JsonProperty(value = "password", access = JsonProperty.Access.WRITE_ONLY)
     private String password;
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", cascade = CascadeType.PERSIST)
     private List<PaymentPlan> plans;
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", cascade = CascadeType.PERSIST)
     private List<Role> roles;
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", cascade = CascadeType.PERSIST)
     private List<Payment> payments;
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Account> accounts;
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Notification> notifications;
 }

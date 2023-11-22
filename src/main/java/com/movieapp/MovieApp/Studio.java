@@ -1,18 +1,17 @@
 package com.movieapp.MovieApp;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.List;
 import java.util.UUID;
 
-@Entity
 @Table(name="Studios", schema = "public")
-@NoArgsConstructor
+@Entity
+@Getter
+@Setter
+@ToString
 @AllArgsConstructor
-@Data
 public class Studio {
     @Id
     @GeneratedValue
@@ -20,9 +19,9 @@ public class Studio {
     private String studioName;
     private String address;
     private String country;
-    @OneToMany(mappedBy = "studio",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "studio",cascade = CascadeType.PERSIST)
     private List<Director> directors;
     @ManyToOne
-    @JoinColumn(name = "movieId")
+    @JoinColumn(name = "movie_id")
     Movie movie;
 }

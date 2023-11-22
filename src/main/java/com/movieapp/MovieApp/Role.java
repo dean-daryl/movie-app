@@ -1,17 +1,16 @@
 package com.movieapp.MovieApp;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.UUID;
 
-@Entity
 @Table(name = "Roles")
-@NoArgsConstructor
+@Entity
+@Getter
+@Setter
+@ToString
 @AllArgsConstructor
-@Data
 public class Role {
     @Id
     @GeneratedValue
@@ -19,6 +18,6 @@ public class Role {
     private String roleName;
     private String description;
     @ManyToOne
-    @JoinColumn(name = "userId")
+    @JoinColumn(name = "user_id")
     private User user;
 }

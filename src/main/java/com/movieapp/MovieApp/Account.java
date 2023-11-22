@@ -1,18 +1,17 @@
 package com.movieapp.MovieApp;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.Collection;
 import java.util.UUID;
 
 @Entity
-@Table(name = "Accounts")
-@NoArgsConstructor
+@Getter
+@Setter
+@ToString
 @AllArgsConstructor
-@Data
+@Table(name = "Accounts")
 public class Account {
     @Id
     @GeneratedValue

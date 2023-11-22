@@ -1,17 +1,16 @@
 package com.movieapp.MovieApp;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.UUID;
 
-@Entity
 @Table(name = "Payment Plans", schema = "public")
-@NoArgsConstructor
+@Entity
+@Getter
+@Setter
+@ToString
 @AllArgsConstructor
-@Data
 public class PaymentPlan {
     @Id
     @GeneratedValue
@@ -21,6 +20,6 @@ public class PaymentPlan {
     private String duration;
     private Boolean active;
     @ManyToOne
-    @JoinColumn(name = "userId")
+    @JoinColumn(name = "user_id")
     private User user;
 }

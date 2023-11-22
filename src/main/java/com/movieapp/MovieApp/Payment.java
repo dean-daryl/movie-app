@@ -1,18 +1,17 @@
 package com.movieapp.MovieApp;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDate;
 import java.util.UUID;
 
-@Entity
 @Table(name = "Payments")
-@NoArgsConstructor
+@Entity
+@Getter
+@Setter
+@ToString
 @AllArgsConstructor
-@Data
 public class Payment {
     @Id
     @GeneratedValue

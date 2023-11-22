@@ -1,24 +1,28 @@
 package com.movieapp.MovieApp;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
+import java.time.LocalDate;
 import java.util.UUID;
 
-@Entity
+
 @Table(name="notifications")
-@NoArgsConstructor
+@Entity
+@Getter
+@Setter
+@ToString
 @AllArgsConstructor
-@Data
 public class Notification {
     @Id
     @GeneratedValue
     private UUID notificationId;
     private String title;
     private String message;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy hh:mm:ss")
+    private LocalDate timeStamp;
     @ManyToOne
-    @JoinColumn(name = "userId")
+    @JoinColumn(name = "user_id")
     private User user;
 }

@@ -1,17 +1,20 @@
 package com.movieapp.MovieApp;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
 @Entity
-@Data
-@NoArgsConstructor
+@Getter
+@Setter
+@ToString
 @AllArgsConstructor
 @Table(name = "actors",schema = "public")
 public class Actor {
@@ -20,13 +23,14 @@ public class Actor {
     private UUID actorId;
     private String firstName;
     private String lastName;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
     private LocalDate dateOfBirth;
     private String address;
     private String nationality;
     private String email;
     private String gender;
-    @OneToMany(mappedBy ="actor", cascade = CascadeType.ALL)
-    private List<ActorAward> actorAwards;
-    @ManyToMany(mappedBy = "movieActors")
+
+    @ManyToMany(mappedBy = "movieActors",fetch = FetchType.LAZY,cascade = CascadeType.PERSIST)
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private List<Movie> movies;
 }

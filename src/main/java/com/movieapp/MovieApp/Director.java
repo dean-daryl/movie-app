@@ -1,18 +1,18 @@
 package com.movieapp.MovieApp;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDate;
 import java.util.UUID;
 
-@Entity
+
 @Table(name="Directors", schema = "public")
-@NoArgsConstructor
+@Entity
+@Getter
+@Setter
+@ToString
 @AllArgsConstructor
-@Data
 public class Director {
     @Id
     @GeneratedValue
@@ -25,9 +25,9 @@ public class Director {
     private String email;
     private String gender;
     @ManyToOne
-    @JoinColumn(name = "studioId")
+    @JoinColumn(name = "studio_id")
     Studio studio;
     @ManyToOne
-    @JoinColumn(name = "movieId")
+    @JoinColumn(name = "movie_id")
     Movie movie;
 }

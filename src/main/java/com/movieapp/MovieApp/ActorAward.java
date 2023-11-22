@@ -1,15 +1,15 @@
 package com.movieapp.MovieApp;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.UUID;
 
 @Entity
-@Data
-@NoArgsConstructor
+@Getter
+@Setter
+@ToString
 @AllArgsConstructor
 @Table(name = "actor awards",schema = "public")
 public class ActorAward {
@@ -18,8 +18,5 @@ public class ActorAward {
     private UUID awardId;
     private String awardName;
     private String year;
-    @ManyToOne
-    @JoinColumn(name = "actorId")
-    Actor actor;
-
+    private UUID actorId;
 }

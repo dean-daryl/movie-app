@@ -12,7 +12,7 @@ import java.util.UUID;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="Movie Awards")
+@Table(name="MovieAwards")
 public class MovieAward {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -20,8 +20,7 @@ public class MovieAward {
     private String award_name;
     private String year;
     @ManyToOne
-    @JoinColumn(name="movieId")
-    @JsonIgnore
+    @JoinColumn(name="movie_id")
     Movie movie;
 
 }
