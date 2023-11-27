@@ -14,7 +14,6 @@ public interface MovieRepository extends JpaRepository<Movie, UUID> {
 //    Pagination
     @Query(value = "SELECT m from Movie m")
     Page<Movie> getAllMovies(Pageable pageable);
-
     @Query(value = "SELECT m FROM Movie m WHERE m.movieId = :movie_id")
     Optional<Movie> getSingleMovieById(@Param("movie_id") UUID movie_id);
     @Query(value = "SELECT m FROM Movie m WHERE m.movieName = :movieName")

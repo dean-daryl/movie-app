@@ -31,7 +31,6 @@ public class User {
     private String email;
     private String gender;
     private String countryCode;
-    @JsonIgnore
     private String phoneNumber;
     @JsonProperty(value = "password", access = JsonProperty.Access.WRITE_ONLY)
     private String password;
