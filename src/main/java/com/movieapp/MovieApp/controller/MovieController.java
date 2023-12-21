@@ -1,9 +1,10 @@
-package com.movieapp.MovieApp;
+package com.movieapp.MovieApp.controller;
 
 
+import com.movieapp.MovieApp.MovieRecord;
+import com.movieapp.MovieApp.service.MovieService;
+import com.movieapp.MovieApp.model.Movie;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -31,8 +32,13 @@ public class MovieController {
         return movieService.getSingleMovie(id);
     }
 
-//    @DeleteMapping("delete/{id}")
-//    public String deleteSingleMovie(@PathVariable UUID id){
-//         movieService.deleteSingleMovie(id);
-//    }
+    @PatchMapping("/{genre_id}/{movie_id}")
+    public Movie addGenreToMovie(@PathVariable UUID genre_id, @PathVariable UUID movie_id){
+        return movieService.addGenreToMovie(genre_id,movie_id);
+    }
+
+    @DeleteMapping("delete/{id}")
+    public String deleteSingleMovie(@PathVariable UUID id){
+        return movieService.deleteMovie(id);
+    }
 }

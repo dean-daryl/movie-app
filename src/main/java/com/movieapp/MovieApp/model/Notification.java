@@ -1,4 +1,4 @@
-package com.movieapp.MovieApp;
+package com.movieapp.MovieApp.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;

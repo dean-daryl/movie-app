@@ -1,6 +1,5 @@
-package com.movieapp.MovieApp;
+package com.movieapp.MovieApp.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -12,6 +11,7 @@ import java.util.UUID;
 @Setter
 @ToString
 @AllArgsConstructor
+@NoArgsConstructor
 public class Genres {
     @Id
     @GeneratedValue

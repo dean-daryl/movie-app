@@ -1,12 +1,10 @@
-package com.movieapp.MovieApp;
+package com.movieapp.MovieApp.model;
 
 import com.fasterxml.jackson.annotation.*;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
-import java.util.Collection;
 import java.util.List;
 import java.util.UUID;
 
@@ -64,5 +62,9 @@ public class Movie {
     @JsonGetter("movieName")
     public String getMovieName() {
         return movieName;
+    }
+    @JsonGetter("Genres")
+    public List<Genres> getGenres(){
+        return genres;
     }
 }

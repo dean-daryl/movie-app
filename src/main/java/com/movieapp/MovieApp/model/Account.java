@@ -1,9 +1,8 @@
-package com.movieapp.MovieApp;
+package com.movieapp.MovieApp.model;
 
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.Collection;
 import java.util.UUID;
 
 @Entity
