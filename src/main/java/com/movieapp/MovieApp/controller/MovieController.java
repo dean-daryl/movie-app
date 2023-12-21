@@ -5,6 +5,7 @@ import com.movieapp.MovieApp.MovieRecord;
 import com.movieapp.MovieApp.service.MovieService;
 import com.movieapp.MovieApp.model.Movie;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -28,7 +29,7 @@ public class MovieController {
         return movieService.getAllMovies();
     }
     @GetMapping("/single/{id}")
-    public Optional<Movie> getSingleMovieById(@PathVariable UUID id){
+    public ResponseEntity<Movie> getSingleMovieById(@PathVariable UUID id){
         return movieService.getSingleMovie(id);
     }
 
