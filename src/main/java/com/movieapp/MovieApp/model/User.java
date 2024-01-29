@@ -18,7 +18,6 @@ import java.util.UUID;
 @Table(name = "users", schema = "public")
 @Data
 @JsonRootName(value = "user")
-@JsonIgnoreProperties({"password"})
 public class User implements UserDetails{
     @Id
     @GeneratedValue
@@ -34,12 +33,9 @@ public class User implements UserDetails{
     private String countryCode;
     private String phoneNumber;
     private String role;
-    @JsonProperty(value = "password", access = JsonProperty.Access.WRITE_ONLY)
     private String password;
     @OneToMany(mappedBy = "user", cascade = CascadeType.PERSIST)
     private List<PaymentPlan> plans;
-//    @OneToMany(mappedBy = "user", cascade = CascadeType.PERSIST)
-//    private List<Role> roles;
     @OneToMany(mappedBy = "user", cascade = CascadeType.PERSIST)
     private List<Payment> payments;
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
@@ -54,10 +50,10 @@ public class User implements UserDetails{
     public void setEmail(String email) {
         this.email = email;
     }
-    public void setPassword(String Password){
+    public void setPassword(String password){
         this.password = password;
     }
-    public void setRole(String Role){
+    public void setRole(String role){
         this.role = role;
     }
     @Override
