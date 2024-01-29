@@ -13,9 +13,12 @@ import java.util.UUID;
 public interface UserRepository extends JpaRepository <User, UUID> {
     @Query(value = "SELECT u FROM User u")
     Page<User> getAllUsers(Pageable pageable);
+
     @Query( value = "SELECT u, a FROM User u JOIN u.accounts a")
     Page<User> findAllUsersAccounts(Pageable pageable);
     @Query(value = "SELECT u FROM User u WHERE u.userId = :user_id")
     Optional<User> getOneUser(@Param("user_id") UUID user_id);
+    Optional<User> findByEmail(String email);
+
 
 }
