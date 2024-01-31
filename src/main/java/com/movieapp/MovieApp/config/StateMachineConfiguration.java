@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.messaging.Message;
 import org.springframework.statemachine.StateContext;
 import org.springframework.statemachine.StateMachine;
+import org.springframework.statemachine.config.EnableStateMachine;
 import org.springframework.statemachine.config.EnableStateMachineFactory;
 import org.springframework.statemachine.config.StateMachineConfigurerAdapter;
 import org.springframework.statemachine.config.builders.StateMachineConfigurationConfigurer;
@@ -19,7 +20,7 @@ import java.util.EnumSet;
 
 
 @Configuration
-@EnableStateMachineFactory
+@EnableStateMachine
 public class StateMachineConfiguration extends StateMachineConfigurerAdapter<Payment.PaymentState, Payment.PaymentEvent> {
     @Override
     public void configure(StateMachineConfigurationConfigurer<Payment.PaymentState, Payment.PaymentEvent> config)
