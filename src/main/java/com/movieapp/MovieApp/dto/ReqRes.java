@@ -34,8 +34,8 @@ public class ReqRes {
     public String getRole(){
         return this.role;
     }
-    public  User setOurUsers(User ourUsers){
-       return ourUsers = this.ourUsers;
+    public void setOurUsers(User ourUsers){
+        ourUsers = this.ourUsers;
     }
 
     public void setEmail(String email) {
