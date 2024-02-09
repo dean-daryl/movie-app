@@ -19,4 +19,5 @@ public interface MovieService {
 
     Movie addGenreToMovie(UUID genre_id, UUID movie_id);
     String deleteMovie(UUID movie_id);
+    ResponseEntity<Movie> getMovieByName(String movie_name);
 }

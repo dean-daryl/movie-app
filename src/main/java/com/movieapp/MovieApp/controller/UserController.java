@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping()
+@RequestMapping("users")
 public class UserController {
     @Autowired
     private UserService userService;
@@ -26,7 +26,8 @@ public class UserController {
     public User createUser(@RequestBody User user){
        return userService.createUser(user);
     }
-    @GetMapping("users/all")
+    @GetMapping("/all")
+    @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('USER')")
     public ResponseEntity<Page<User>> getAllUsers(Pageable pageable){
        return userService.getAllUsers(pageable);
     }
