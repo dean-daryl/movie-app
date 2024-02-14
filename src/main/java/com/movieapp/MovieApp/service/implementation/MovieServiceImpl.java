@@ -18,8 +18,11 @@ import java.util.UUID;
 @Transactional
 @Service
 public class MovieServiceImpl implements MovieService {
+    private final MovieRepository movieRepository;
     @Autowired
-    private MovieRepository movieRepository;
+    public MovieServiceImpl(MovieRepository movieRepository) {
+        this.movieRepository = movieRepository;
+    }
     @Autowired
     private GenreRepository genreRepository;
     @Override
@@ -55,7 +58,7 @@ public class MovieServiceImpl implements MovieService {
         if(movie != null){
             try{
                 movieRepository.deleteById(movie_id);
-                response = "Successfully delete message";
+                response = "Successfully deleted movie";
             }
             catch (RuntimeException exception){
                 response = exception.getMessage();
@@ -66,7 +69,7 @@ public class MovieServiceImpl implements MovieService {
 
     @Override
     public ResponseEntity<Movie> getMovieByName(String movie_name) {
-        Movie movie = movieRepository.getSingleMovieByName(movie_name).orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND, "Movie with such an ID was not found"));
+        Movie movie = movieRepository.getSingleMovieByName(movie_name).orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND, "Movie with such a Name was not found"));
         return ResponseEntity.ok(movie);
     }
 }

@@ -9,12 +9,12 @@ import java.util.List;
 import java.util.UUID;
 
 @Entity
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "movies", schema = "public")
 public class Movie {
     @Id
-    @Getter
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID movieId;
 
@@ -53,7 +53,8 @@ public class Movie {
     @OneToMany(mappedBy = "movie", cascade = CascadeType.PERSIST)
     List<Director> directors;
 
-    public Movie(LocalDate releaseDate, String movieName, Integer views) {
+    public Movie(UUID movieId, LocalDate releaseDate, String movieName, Integer views) {
+        this.movieId = movieId;
         this.releaseDate = releaseDate;
         this.movieName = movieName;
         this.views = views;
@@ -67,4 +68,5 @@ public class Movie {
     public List<Genres> getGenres(){
         return genres;
     }
+    public UUID getMovieId(){return movieId;}
 }
