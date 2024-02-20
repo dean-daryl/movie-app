@@ -1,6 +1,7 @@
 package com.movieapp.MovieApp.core.service.implementation;
 
 import com.movieapp.MovieApp.MovieAppApplication;
+import com.movieapp.MovieApp.MovieRecord;
 import com.movieapp.MovieApp.model.Movie;
 import com.movieapp.MovieApp.repository.MovieRepository;
 import com.movieapp.MovieApp.service.MovieService;
@@ -16,6 +17,7 @@ import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -57,6 +59,11 @@ class MovieServiceImplTest {
            String response = movieService.deleteMovie(movie.get().getMovieId());
            Assertions.assertEquals("Successfully deleted movie", response);
         }
+    }
+    @Test
+    void testGetAllMovies(){
+        List<MovieRecord> movies = movieService.getAllMovies();
+        Assertions.assertNotNull(movies);
     }
 
 }
