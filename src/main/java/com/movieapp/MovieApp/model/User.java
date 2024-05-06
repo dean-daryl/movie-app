@@ -43,6 +43,9 @@ public class User implements UserDetails{
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Notification> notifications;
 
+    public User() {
+    }
+
     public String getEmail() {
         return this.email;
     }

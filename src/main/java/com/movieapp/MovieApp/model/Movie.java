@@ -48,9 +48,6 @@ public class Movie {
 
     @JsonFormat(shape = JsonFormat.Shape.ARRAY)
     @OneToMany(mappedBy = "movie", cascade = CascadeType.PERSIST)
-    List<Studio> studios;
-    @JsonFormat(shape = JsonFormat.Shape.ARRAY)
-    @OneToMany(mappedBy = "movie", cascade = CascadeType.PERSIST)
     List<Director> directors;
 
     public Movie(UUID movieId, LocalDate releaseDate, String movieName, Integer views) {

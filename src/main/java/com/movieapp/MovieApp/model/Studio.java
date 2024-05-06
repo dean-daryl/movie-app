@@ -1,27 +1,20 @@
 package com.movieapp.MovieApp.model;
 
-import jakarta.persistence.*;
-import lombok.*;
+import jakarta.persistence.Id;
+import lombok.Getter;
+import lombok.Setter;
+import org.springframework.data.elasticsearch.annotations.Document;
+import org.springframework.data.elasticsearch.annotations.Field;
 
-import java.util.List;
 import java.util.UUID;
 
-@Table(name="Studios", schema = "public")
-@Entity
 @Getter
 @Setter
-@ToString
-@AllArgsConstructor
-public class Studio {
+@Document(indexName = "studio", createIndex = true)
+public class Studio{
     @Id
-    @GeneratedValue
-    private UUID studioId;
+    private String id;
+    @Field
     private String studioName;
-    private String address;
-    private String country;
-    @OneToMany(mappedBy = "studio",cascade = CascadeType.PERSIST)
-    private List<Director> directors;
-    @ManyToOne
-    @JoinColumn(name = "movie_id")
-    Movie movie;
+
 }

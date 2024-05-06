@@ -25,9 +25,6 @@ public class Director {
     private String email;
     private String gender;
     @ManyToOne
-    @JoinColumn(name = "studio_id")
-    Studio studio;
-    @ManyToOne
     @JoinColumn(name = "movie_id")
     Movie movie;
 }
