@@ -32,7 +32,10 @@ public class MovieController {
     public ResponseEntity<Movie> getSingleMovieById(@PathVariable UUID id){
         return movieService.getSingleMovie(id);
     }
-
+    @GetMapping("/name")
+    public ResponseEntity<Movie> getSingleMovieById(@RequestHeader String name){
+        return movieService.getMovieByName(name);
+    }
     @PatchMapping("/{genre_id}/{movie_id}")
     public Movie addGenreToMovie(@PathVariable UUID genre_id, @PathVariable UUID movie_id){
         return movieService.addGenreToMovie(genre_id,movie_id);

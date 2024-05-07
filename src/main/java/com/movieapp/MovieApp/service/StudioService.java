@@ -11,4 +11,5 @@ public interface StudioService {
     public Studio createStudio(Studio studio);
     public Page<Studio> getAllStudios(Pageable pageable);
     public Studio getSingleStudio(UUID id);
+    public List<Studio>findByStudioName(String studioName);
 }

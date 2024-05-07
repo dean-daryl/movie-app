@@ -69,7 +69,7 @@ public class MovieServiceImpl implements MovieService {
 
     @Override
     public ResponseEntity<Movie> getMovieByName(String movie_name) {
-        Movie movie = movieRepository.getSingleMovieByName(movie_name).orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND, "Movie with such a Name was not found"));
+        Movie movie = movieRepository.findMovieByMovieName(movie_name).orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND, "Movie with such a Name was not found"));
         return ResponseEntity.ok(movie);
     }
 }

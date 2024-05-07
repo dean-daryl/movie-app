@@ -15,6 +15,5 @@ public interface MovieRepository extends JpaRepository<Movie, UUID> {
     List<MovieRecord> getMoviesByReleaseDateMovieNameAndViews();
     @Query(value = "SELECT m FROM Movie m WHERE m.movieId = :movie_id")
     Optional<Movie> getSingleMovieById(@Param("movie_id") UUID movie_id);
-    @Query(value = "SELECT m FROM Movie m WHERE m.movieName = :movieName")
-    Optional<Movie> getSingleMovieByName(@Param("movieName") String movieName);
+    Optional<Movie> findMovieByMovieName(String movieName);
 }

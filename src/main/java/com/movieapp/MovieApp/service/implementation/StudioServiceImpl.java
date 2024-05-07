@@ -32,4 +32,9 @@ public class StudioServiceImpl implements StudioService {
     public Studio getSingleStudio(UUID id) {
         return null;
     }
+
+    @Override
+    public List<Studio> findByStudioName(String studioName) {
+        return studioRepository.findByStudioName(studioName);
+    }
 }

@@ -26,4 +26,8 @@ public class StudioController {
     public Page<Studio> getAllStudios(){
         return studioService.getAllStudios(Pageable.unpaged());
     }
+    @GetMapping("/name")
+    public List<Studio> findByName(@RequestHeader String studioName){
+        return studioService.findByStudioName(studioName);
+    }
 }
